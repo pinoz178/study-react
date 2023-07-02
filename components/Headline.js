@@ -5,11 +5,10 @@ import Image from 'next/image'
 export function Headline(props) {
     console.log(props);
     return (
-        <dov>
+        <div>
           <div className={styles.description}>
             <p>
-              Hi,{props.title}!Get started by editing&nbsp;
-              <code className={styles.code}>pages/{props.page}.js</code>
+              Hi,{props.title}!Get started by editing&nbsp;{props.children}
             </p>
             <div>
               <a
@@ -29,7 +28,7 @@ export function Headline(props) {
               </a>
             </div>
           </div>
-        </dov>
+        </div>
     )
   }
   
