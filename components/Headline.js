@@ -2,7 +2,7 @@ import styles from '@/styles/Home.module.css'
 import Image from 'next/image'
 
 
-export default function Headline(props) {
+export function Headline(props) {
     console.log(props);
     return (
         <dov>
