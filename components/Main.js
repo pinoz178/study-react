@@ -1,6 +1,6 @@
-import { Links } from './components/Links'
-import styles from './components/Main.module.css'
-import {Headline} from './components/Headline'
+import { Links } from './Links'
+import styles from './Main.module.css'
+import {Headline} from './Headline'
 
 export function Main(props) {
     return (
