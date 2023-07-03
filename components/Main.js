@@ -1,5 +1,5 @@
 import { Links } from './components/Links'
-import styles from './components/main.module.css'
+import styles from './components/Main.module.css'
 import {Headline} from './components/Headline'
 
 export function Main(props) {
