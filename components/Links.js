@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import styles from 'Links.module.css'
+import styles from './components/Links.module.css'
 import { Tilt_Neon } from 'next/font/google'
 
 const ITEMS = [
