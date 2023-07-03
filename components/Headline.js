@@ -1,4 +1,4 @@
-import styles from './headline.module.css'
+import styles from './Headline.module.css'
 import Image from 'next/image'
 
 
