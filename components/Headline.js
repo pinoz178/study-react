@@ -1,4 +1,4 @@
-import styles from '@/styles/Home.module.css'
+import styles from '@/components/Headline.module.css'
 import Image from 'next/image'
 
 
@@ -6,7 +6,7 @@ export function Headline(props) {
     console.log(props);
     return (
         <div>
-          <div className={styles.description}>
+          <div className={styles.description} >
             <p>
               Hi,{props.title}!Get started by editing&nbsp;{props.children}
             </p>
