@@ -3,27 +3,25 @@ import { Inter } from 'next/font/google'
 import { Footer } from 'src/components/Footer'
 import { Main } from 'src/components/Main'
 import { Header } from 'src/Header'
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const foo = 1;
+  const [foo, setFoo] = useState(1)
 
-   const handleClick = useCallback((e) => {
-     console.log(e.target.href);
-     e.preventDefault();
-     alert(foo);
-   },[])
+  const handleClick=(e) => {
+    setFoo(foo => foo+1)
+  }
 
   useEffect(() => {
-    console.log("マウント時");
     document.body.style.backgroundColor ="purple";
     return()=>{
-      console.log("アンマウント時");
       document.body.style.backgroundColor ="";
     }
   },[]);
+
+  console.log(foo);
 
   return (
     <>
@@ -34,9 +32,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      /<a href="/about" onClick={handleClick}>
-        ボタン
-      </a> 
+      <h1>{foo}</h1>
+      <button onClick={handleClick}>ボタン</button> 
       <Main title="Index Page" page="index" />
       <Footer />
     </>

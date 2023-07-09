@@ -1,7 +1,6 @@
 import { Links } from '../Links'
 import styles from './Main.module.css'
 import {Headline} from '../Headline'
-import { useEffect } from 'react';
 
 export function Main(props) {
     return (
