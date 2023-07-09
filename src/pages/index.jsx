@@ -15,7 +15,7 @@ export default function Home() {
      e.preventDefault();
      alert(foo);
    },[])
-   
+
   useEffect(() => {
     console.log("マウント時");
     document.body.style.backgroundColor ="purple";
@@ -34,9 +34,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      {/<a href="/about" onClick={handleClick}>
+      /<a href="/about" onClick={handleClick}>
         ボタン
-      </a> }
+      </a> 
       <Main title="Index Page" page="index" />
       <Footer />
     </>
