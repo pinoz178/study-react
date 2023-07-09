@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 
 export function Headline(props) {
-    console.log(props);
     return (
         <div>
           <div className={styles.description} >
