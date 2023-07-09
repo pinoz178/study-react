@@ -10,11 +10,12 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const foo = 1;
 
-  // const handleClick = useCallback((e) => {
-  //   console.log(e.target.href);
-  //   e.preventDefault();
-  //   alert(foo);
-  // },[])
+   const handleClick = useCallback((e) => {
+     console.log(e.target.href);
+     e.preventDefault();
+     alert(foo);
+   },[])
+   
   useEffect(() => {
     console.log("マウント時");
     document.body.style.backgroundColor ="purple";
@@ -33,9 +34,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      {/* <a href="/about" onClick={handleClick}>
+      {/<a href="/about" onClick={handleClick}>
         ボタン
-      </a> */}
+      </a> }
       <Main title="Index Page" page="index" />
       <Footer />
     </>
