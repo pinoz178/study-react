@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [foo, setFoo] = useState(1)
+  const [text, setText] = useState("")
+  const [isShow, setisShow] = useState(true)
+
 
   const handleClick = useCallback((e) => {
     if(foo<10){
@@ -22,7 +25,21 @@ export default function Home() {
       document.body.style.backgroundColor ="";
     }
   }, [foo]);
+
+  const handleDisplay = useCallback(() => {
+    setisShow((isShow) => !isShow)
+  },[])
  
+  console.log(text)
+
+  const handleChange = useCallback((e) => {
+    if(e.target.value.length > 5){
+      alert("5文字以内にしてください")
+      return
+    }
+    setText(e.target.value.trim())
+  },[])
+
   return (
     <>
       <Head>
@@ -32,8 +49,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <h1>{foo}</h1>
+      {isShow ? <h1>{foo}</h1> : null}
       <button onClick={handleClick}>ボタン</button> 
+      <button
+        onClick={handleDisplay}
+        >
+          {isShow ? "非表示" : "表示"}</button>
+      <input type="text" value={text} onChange={handleChange}  />
       <Main title="Index Page" page="index" />
       <Footer />
     </>
