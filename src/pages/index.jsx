@@ -41,6 +41,16 @@ export default function Home() {
     setText(e.target.value.trim())
   },[])
 
+  const handleAdd = useCallback((e) => {
+    setArray((prevArray) => {
+      if(prevArray.some((item) => item === text)){
+        alert("同じ要素が既に存在します。")
+        return prevArray
+      }
+      return [...prevArray,text]
+    })
+  },[text])
+
   return (
     <>
       <Head>
@@ -57,6 +67,14 @@ export default function Home() {
         >
           {isShow ? "非表示" : "表示"}</button>
       <input type="text" value={text} onChange={handleChange}  />
+      <button onClick={handleAdd}>追加</button>
+      <ul>
+        {array.map(item => {
+          return (
+            <li key={item}>{item}</li>
+          )
+        })}
+      </ul>
       <Main title="Index Page" page="index" />
       <Footer />
     </>
