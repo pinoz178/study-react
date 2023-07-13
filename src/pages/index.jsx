@@ -2,54 +2,20 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { Footer } from 'src/components/Footer'
 import { Main } from 'src/components/Main'
-import { Header } from 'src/Header'
-import { useCallback, useEffect, useState } from 'react'
+import { Header } from 'src/components/Header'
+import { useCounter } from 'src/components/books/useCounter'
+import { useInputArray } from 'src/components/books/useInputArray'
+import { useBgPurple } from 'src/components/books/useBgPurple'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export default function Home() {
-  const [foo, setFoo] = useState(1)
-  const [text, setText] = useState("")
-  const [isShow, setisShow] = useState(true)
-  const [array, setArray] = useState([ ])
+  const { foo, isShow, handleClick, handleDisplay } = useCounter()
+  const { text, array, handleChange, handleAdd } = useInputArray()
+  useBgPurple()
 
-
-  const handleClick = useCallback((e) => {
-    if(foo<10){
-      setFoo(prevfoo => prevfoo + 1)
-    }
-  }, [foo])
-
-  useEffect(() => {
-    document.body.style.backgroundColor = "purple";
-    return()=>{
-      document.body.style.backgroundColor = "";
-    }
-  }, [foo]);
-
-  const handleDisplay = useCallback(() => {
-    setisShow((previsShow) => !previsShow)
-  },[])
- 
   console.log(text)
-
-  const handleChange = useCallback((e) => {
-    if(e.target.value.length > 5){
-      alert("5文字以内にしてください")
-      return
-    }
-    setText(e.target.value.trim())
-  },[])
-
-  const handleAdd = useCallback((e) => {
-    setArray((prevArray) => {
-      if(prevArray.some((item) => item === text)){
-        alert("同じ要素が既に存在します。")
-        return prevArray
-      }
-      return [...prevArray,text]
-    })
-  },[text])
 
   return (
     <>
@@ -66,6 +32,7 @@ export default function Home() {
         onClick={handleDisplay}
         >
           {isShow ? "非表示" : "表示"}</button>
+
       <input type="text" value={text} onChange={handleChange}  />
       <button onClick={handleAdd}>追加</button>
       <ul>
