@@ -11,23 +11,24 @@ export default function Home() {
   const [foo, setFoo] = useState(1)
   const [text, setText] = useState("")
   const [isShow, setisShow] = useState(true)
+  const [array, setArray] = useState([ ])
 
 
   const handleClick = useCallback((e) => {
     if(foo<10){
-      setFoo(foo => foo+1)
+      setFoo(prevfoo => prevfoo + 1)
     }
   }, [foo])
 
   useEffect(() => {
-    document.body.style.backgroundColor ="purple";
+    document.body.style.backgroundColor = "purple";
     return()=>{
-      document.body.style.backgroundColor ="";
+      document.body.style.backgroundColor = "";
     }
   }, [foo]);
 
   const handleDisplay = useCallback(() => {
-    setisShow((isShow) => !isShow)
+    setisShow((previsShow) => !previsShow)
   },[])
  
   console.log(text)
