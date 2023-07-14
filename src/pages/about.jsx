@@ -3,16 +3,11 @@ import { Inter } from 'next/font/google'
 import { Footer } from 'src/components/Footer'
 import { Main } from 'src/components/Main'
 import { Header } from 'src/components/Header'
-import { useCounter } from 'src/components/books/useCounter'
-import { useInputArray } from 'src/components/books/useInputArray'
-import { useBgPurple } from 'src/components/books/useBgPurple'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function About() {
-  const { foo, isShow, handleClick, handleDisplay } = useCounter()
-  const { text, array, handleChange, handleAdd } = useInputArray()
-  useBgPurple()
+export default function About(props) {
+  const {foo, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd} = props
 
   console.log(text)
   return (
