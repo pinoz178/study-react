@@ -7,7 +7,7 @@ import { Header } from 'src/components/Header'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function About(props) {
-  const {foo, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd} = props
+  const {foo, doubleCount, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd} = props
 
   console.log(text)
   return (
@@ -19,7 +19,7 @@ export default function About(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      {isShow ? <h1>{foo}</h1> : null}
+      {isShow ? <h1>{doubleCount}</h1> : null}
       <button onClick={handleClick}>ボタン</button> 
       <button
         onClick={handleDisplay}
